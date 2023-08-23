@@ -1,6 +1,7 @@
 package in.co.rays.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,12 +49,28 @@ public class UserModel {
 		ps.setString(3, bean.getLastName());
 		ps.setString(4, bean.getLoginId());
 		ps.setString(5, bean.getPassword());
-		ps.setDate(6, new java.sql.Date(bean.getDob().getTime()));
+	ps.setDate(6, new java.sql.Date(bean.getDob().getTime()));
 		ps.setString(7, bean.getAddress());
 
 		int i = ps.executeUpdate();
 
 		System.out.println("data inserted =" + i);
+
+	}
+
+	public void delete(int id) throws Exception {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+
+//		Connection conn = JDBCDataSource.getConnection();
+
+		PreparedStatement ps = conn.prepareStatement("delete from user where id = ?");
+
+		ps.setInt(1, id);
+		int i = ps.executeUpdate();
+
+		System.out.println("data deleted =" + i);
 
 	}
 
@@ -116,8 +133,7 @@ public class UserModel {
 
 		// Connection conn = JDBCDataSource.getConnection();
 
-		// PreparedStatement ps = conn.prepareStatement("select * from user where 1=1");
-		StringBuffer sql = new StringBuffer("select * from user where 1=1 ");
+		StringBuffer sql = new StringBuffer("select * from user where 1=1");
 
 		if (bean != null) {
 
@@ -139,14 +155,13 @@ public class UserModel {
 
 			}
 
-			if (pageSize > 0) {
-
-				pageNo = (pageNo - 1) * pageSize;
-
-				sql.append(" limit " + pageNo + " , " + pageSize);
-			}
 		}
+		if (pageSize > 0) {
 
+			pageNo = (pageNo - 1) * pageSize;
+
+			sql.append(" limit " + pageNo + ", " + pageSize);
+		}
 		System.out.println(sql.toString());
 
 		PreparedStatement ps = conn.prepareStatement(sql.toString());

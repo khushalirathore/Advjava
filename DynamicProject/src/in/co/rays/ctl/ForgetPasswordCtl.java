@@ -1,7 +1,6 @@
 package in.co.rays.ctl;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,31 +9,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/FirstServlet")
-public class FirstServlet extends HttpServlet {
+import in.co.rays.bean.UserBean;
+import in.co.rays.model.UserModel;
+
+@WebServlet("/ForgetPasswordCtl")
+public class ForgetPasswordCtl extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		System.out.println("in First Servlet do get");
-
-	resp.sendRedirect("SecondServlet");
-
+		resp.sendRedirect("ForgetPasswordView.jsp");
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String name = req.getParameter("name");
+		String loginId = req.getParameter("loginId");
 
-		System.out.println("in First Servlet do post "+name);
-		
-		//req.setAttribute("surname", " Sharma");
+		UserModel model = new UserModel();
 
-		RequestDispatcher rd = req.getRequestDispatcher("SecondServlet");
+		try {
+			UserBean bean = model.findByLogin(loginId);
 
-		rd.forward(req, resp);
+			req.setAttribute("password", bean.getPassword());
 
+			RequestDispatcher rd = req.getRequestDispatcher("ForgetPasswordView.jsp");
+
+			rd.forward(req, resp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

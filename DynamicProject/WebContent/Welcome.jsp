@@ -2,7 +2,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="in.co.rays.bean.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<center>
 <%@ include file="Header.jsp"%>
 
+	
 
+ 
 	<h1>Welcome View</h1>
 
 

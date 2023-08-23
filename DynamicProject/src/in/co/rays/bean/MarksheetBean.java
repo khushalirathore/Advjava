@@ -1,49 +1,60 @@
 package in.co.rays.bean;
 
 public class MarksheetBean {
-	
-	private int Id;
-	private String Name;
+
+	private int id;
+	private String name;
 	private int rollNo;
-	private int Physics;
-	private int Chemistry ;
+	private int physics;
+	private int chemistry;
 	private int maths;
+
 	public int getId() {
-		return Id;
+		return id;
 	}
+
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
+
 	public String getName() {
-		return Name;
+		return name;
 	}
+
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
+
 	public int getRollNo() {
 		return rollNo;
 	}
+
 	public void setRollNo(int rollNo) {
 		this.rollNo = rollNo;
 	}
+
 	public int getPhysics() {
-		return Physics;
+		return physics;
 	}
+
 	public void setPhysics(int physics) {
-		Physics = physics;
+		this.physics = physics;
 	}
+
 	public int getChemistry() {
-		return Chemistry;
+		return chemistry;
 	}
+
 	public void setChemistry(int chemistry) {
-		Chemistry = chemistry;
+		this.chemistry = chemistry;
 	}
+
 	public int getMaths() {
 		return maths;
 	}
+
 	public void setMaths(int maths) {
 		this.maths = maths;
 	}
-	
 
 }

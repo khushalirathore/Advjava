@@ -35,27 +35,27 @@
 			</tr>
 			<tr>
 				<th>First_Name :</th>
-				<td><input type="text" name="First_Name"></td>
+				<td><input type="text" name="firstName"></td>
 			</tr>
 			<tr>
 				<th>Last_Name :</th>
-				<td><input type="text" name="Last_Name"></td>
+				<td><input type="text" name="lastName"></td>
 			</tr>
 			<tr>
 				<th>Login_Id :</th>
-				<td><input type="text" name="Login_Id"></td>
+				<td><input type="text" name="loginId"></td>
 			</tr>
 			<tr>
 				<th>Password :</th>
-				<td><input type="password" name="Password"></td>
+				<td><input type="password" name="password"></td>
 			</tr>
 			<tr>
 				<th>DOB :</th>
-				<td><input type="date" name="DOB"></td>
+				<td><input type="date" name="dob"></td>
 			</tr>
 			<tr>
 				<th>Address :</th>
-				<td><input type="text" name="Address"></td>
+				<td><input type="text" name="address"></td>
 			</tr>
 			<tr>
 				<th></th>

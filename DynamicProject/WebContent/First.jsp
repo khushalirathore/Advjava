@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action ="FirstServlet" method = "post">
+<form action ="TestCtl" method = "get">
 <input type= "text" name="name">
-
+<input type= "text" name="name">
 <input type= "submit" value="done">
 </form>
 
